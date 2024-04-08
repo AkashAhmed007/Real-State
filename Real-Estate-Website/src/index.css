@@ -3,8 +3,27 @@
 @tailwind utilities;
 
 body{font-family: "sans-serif",serif;}
-.bgImage{
-    background-image: url('/public/bg-image.jpeg');
-    background-size: contain;
+
+.slide1{
+    background-image:url('./assets/yann-maignan-rRiAzFkJPMo-unsplash.jpg');  
+}
+.slide2{
+    background-image: url('./assets/pexels-timur-saglambilek-87223.jpg');  
+}
+.slide3{
+    background-image: url('./assets/pexels-vishu-18567185.jpg');   
+}
+.slide4{
+    background-image: url('./assets/pexels-pixabay-257636.jpg') ;   
+}
+
+.slider{
+    height: 80vh;
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding:50px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
