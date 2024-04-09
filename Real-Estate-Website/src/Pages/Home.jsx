@@ -6,7 +6,7 @@ const Home = () => {
       <Banner></Banner>
       <h1 className="text-5xl text-center m-8">OUR BEST OFFERS</h1>
       <p className="border-t-4 border-indigo-500 m-5 p-5" ></p>
-      <div className="grid grid-cols-3 gap-5 w-10/12 mx-auto">
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-5 w-10/12 mx-auto">
         <div className="card">
           <figure>
             <img src={image} alt="car!" />
@@ -15,7 +15,7 @@ const Home = () => {
             <h2 className="card-title">Life hack</h2>
             <p>How to park your car at your garage?</p>
             <div className="card-actions justify-start">
-              <button className="btn btn-primary">Learn now!</button>
+              <button className="btn bg-[#27b6de] text-white font-bold">Learn now!</button>
             </div>
           </div>
         </div>
@@ -27,7 +27,7 @@ const Home = () => {
             <h2 className="card-title">Life hack</h2>
             <p>How to park your car at your garage?</p>
             <div className="card-actions justify-start">
-              <button className="btn btn-primary">Learn now!</button>
+              <button className="btn bg-[#27b6de] text-white font-bold">Learn now!</button>
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@ const Home = () => {
             <h2 className="card-title">Life hack</h2>
             <p>How to park your car at your garage?</p>
             <div className="card-actions justify-start">
-              <button className="btn btn-primary">Learn now!</button>
+              <button className="btn bg-[#27b6de] text-white font-bold">Learn now!</button>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@ const Home = () => {
             <h2 className="card-title">Life hack</h2>
             <p>How to park your car at your garage?</p>
             <div className="card-actions justify-start">
-              <button className="btn btn-primary">Learn now!</button>
+              <button className="btn bg-[#27b6de] text-white font-bold">Learn now!</button>
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@ const Home = () => {
             <h2 className="card-title">Life hack</h2>
             <p>How to park your car at your garage?</p>
             <div className="card-actions justify-start">
-              <button className="btn btn-primary">Learn now!</button>
+              <button className="btn bg-[#27b6de] text-white font-bold">Learn now!</button>
             </div>
           </div>
         </div>
@@ -75,18 +75,18 @@ const Home = () => {
             <h2 className="card-title">Life hack</h2>
             <p>How to park your car at your garage?</p>
             <div className="card-actions justify-start">
-              <button className="btn btn-primary">Learn now!</button>
+              <button className="btn bg-[#27b6de] text-white font-bold">Learn now!</button>
             </div>
           </div>
         </div>
       </div>
-      <p className="border-t-4 border-indigo-500 m-5 p-5" ></p>
-      <div className="flex justify-between py-16 w-10/12 mx-auto">
-        <h1 className="text-4xl font-bold w-3/4 pr-5">GET STARTED ON BUYING YOUR NEW HOME! FIND YOUR AGENT!</h1>
-        <button className="bg-[#27b6de] text-white text-2xl px-2 py-2 font-bold">CLICK HERE</button>
+      <p className="border-t-4 border-indigo-500 m-5 p-5"></p>
+      <div className="lg:flex lg:justify-between lg:py-16 py-5 w-10/12 mx-auto">
+        <h1 className="lg:text-4xl text-2xl font-bold lg:w-3/4 w-full lg:pr-5 pr-3">GET STARTED ON BUYING YOUR NEW HOME! FIND YOUR AGENT!</h1>
+        <button className="bg-[#27b6de] text-white lg:text-2xl text-base px-2 py-2 font-bold md:mt-5 mt-4">CLICK HERE</button>
       </div>
       <div>
-        
+
       </div>
     </>
   );
