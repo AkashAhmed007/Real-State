@@ -1,19 +1,21 @@
+import { Link } from "react-router-dom";
+
 const Login = () => {
   return (
-    <div className="min-h-screen my-5">
+    <div className="min-h-screen my-5 mt-28 m-5">
       <div className="w-full mx-auto max-w-md p-4 rounded-lg border shadow sm:p-8 dark:bg-gray-500 dark:text-gray-800">
         <h2 className="mb-3 text-3xl font-semibold text-center">
           Login to your account
         </h2>
         <p className="text-sm text-center dark:text-gray-600">
           Dont have account?
-          <a
+          <Link to='/register'
             href="#"
             rel="noopener noreferrer"
             className="focus:underline hover:underline text-blue-600"
           >
             Sign up here
-          </a>
+          </Link>
         </p>
         <div className="my-6 space-y-4">
           <button

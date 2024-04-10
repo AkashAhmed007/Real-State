@@ -4,7 +4,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 
 const Banner = () => {
   return (
-    <div>
+    <div className="mt-20">
       <Swiper
         navigation={true}
         modules={[Navigation, Autoplay]}
@@ -13,24 +13,24 @@ const Banner = () => {
       >
         <SwiperSlide>
           <div className="slide1 slider">
-            <h1 className="text-8xl font-extrabold text-black">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-black">
               Driven By Integrity
             </h1>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="slide2 slider">
-            <h1>Slide2</h1>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-black">World-class client support</h1>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="slide3 slider">
-            <h1>Slide3</h1>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-black">A fully customized experience</h1>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="slide4 slider">
-            <h1>Slide4</h1>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-black">Modernize your property</h1>
           </div>
         </SwiperSlide>
       </Swiper> 

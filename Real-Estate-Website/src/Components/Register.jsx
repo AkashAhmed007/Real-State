@@ -1,29 +1,56 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "./FirebaseProvider/FirebaseProvider";
+import { useForm } from "react-hook-form";
+
 const Register = () => {
+
+  const {createUser} = useContext(AuthContext)  
+  const {register,handleSubmit,formState: { errors }} = useForm()
+  const onSubmit = (data)=> {
+    const{email,password} = data;
+    createUser(email,password)
+    .then(result=>console.log(result))
+}
   return (
-    <div className="min-h-screen">
-      <h1>This is register page</h1>
+    <div className="min-h-screen my-5 mt-28 m-5">
       <div className="w-full mx-auto max-w-md p-8 space-y-3 border rounded-xl dark:bg-gray-50 dark:text-gray-800">
-        <h1 className="text-3xl font-bold text-center">Register</h1>
-        <form noValidate="" action="" className="space-y-6">
+        <h1 className="text-3xl font-bold text-center">Register Now!</h1>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-1 text-sm">
             <label htmlFor="username" className="block dark:text-gray-600">
               Username
             </label>
             <input
               type="text"
+              {...register("username", { required: true })}
               name="username"
               id="username"
               placeholder="Username"
               className="w-full px-4 py-3 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
             />
-            <label htmlFor="username" className="block dark:text-gray-600">
+            {errors.username && <span className="text-red-500" >This field is required</span>}
+            <label htmlFor="email" className="block dark:text-gray-600">
               Email
             </label>
             <input
+            {...register("email", { required: true })}
               type="email"
               name="email"
               id="email"
               placeholder="Email"
+              className="w-full px-4 py-3  border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+            />
+            {errors.email && <span className="text-red-500">This field is required</span>}
+            <label htmlFor="image" className="block dark:text-gray-600">
+              PhotoURL
+            </label>
+            <input
+             {...register("image")}
+              type="text"
+              name="text"
+              id="image"
+              placeholder="PhotURL"
               className="w-full px-4 py-3  border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
             />
           </div>
@@ -32,13 +59,14 @@ const Register = () => {
               Password
             </label>
             <input
+            {...register("password", { required: true })}
               type="password"
               name="password"
               id="password"
               placeholder="Password"
               className="w-full px-4 py-3 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
             />
-            
+            {errors.password && <span className="text-red-500" >This field is required</span>}
           </div>
           <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600 bg-[#27b6de] text-white">
             Sign in
@@ -82,13 +110,14 @@ const Register = () => {
         </div>
         <p className="text-xs text-center sm:px-6 dark:text-gray-600">
           Already Registerd?
-          <a
+          <Link
+            to="/login"
             rel="noopener noreferrer"
             href="#"
             className="underline dark:text-gray-800"
           >
             Login
-          </a>
+          </Link>
         </p>
       </div>
     </div>
