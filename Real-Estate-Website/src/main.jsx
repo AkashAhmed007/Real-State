@@ -15,6 +15,8 @@ import Features from './Pages/Features.jsx';
 import UpdateProfile from './Components/UpdateProfile.jsx';
 import NotFound from './Components/NotFound.jsx';
 import FirebaseProvider from './Components/FirebaseProvider/FirebaseProvider.jsx';
+import EstateDetails from './Components/Estates/EstateDetails.jsx';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,7 +34,8 @@ const router = createBrowserRouter([
     },
     {
       path:'/card/:id',
-      element: <About></About>
+      element: <PrivateRoute><EstateDetails></EstateDetails></PrivateRoute>,
+      loader:()=>fetch('/data.json')
     },
     {
       path:'/feature',

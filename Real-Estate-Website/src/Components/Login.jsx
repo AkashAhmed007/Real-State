@@ -1,16 +1,30 @@
 
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate,useLocation } from "react-router-dom";
 import { AuthContext } from "./FirebaseProvider/FirebaseProvider";
 import { useForm } from "react-hook-form";
 const Login = () => {
 const {signInUser,googleLogin,githubLogin} = useContext(AuthContext)
+const navigate = useNavigate()
+const location = useLocation()
+
+const handleSocialLogin = (socialProvider)=>{
+  socialProvider()
+  .then(result=>{
+    if(result.user){
+      navigate(location?.state || '/')
+    }
+  }
+  )
+}
 
   const {register,handleSubmit,formState: { errors }} = useForm()
   const onSubmit = (data)=> {
     const{email,password} = data;
     signInUser(email,password)
-    .then(result=>console.log(result))
+    .then(()=>{
+      navigate(location?.state || '/')
+    })
 }
 
   return (
@@ -30,7 +44,7 @@ const {signInUser,googleLogin,githubLogin} = useContext(AuthContext)
           </Link>
         </p>
         <div className="my-6 space-y-4">
-          <button onClick={googleLogin}
+          <button onClick={()=>handleSocialLogin(googleLogin)}
             aria-label="Login with Google"
             type="button"
             className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600"
@@ -44,7 +58,7 @@ const {signInUser,googleLogin,githubLogin} = useContext(AuthContext)
             </svg>
             <p>Login with Google</p>
           </button>
-          <button onClick={githubLogin}
+          <button onClick={()=>handleSocialLogin(githubLogin)}
             aria-label="Login with GitHub"
             role="button"
             className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600"

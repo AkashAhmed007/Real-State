@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import auth from "../../Firebase/firebaseConfig";
 
 
@@ -11,24 +11,36 @@ const githubProvider = new GithubAuthProvider()
 export const AuthContext = createContext(null);
 const FirebaseProvider = ({children}) => {
     const [user,setUser] = useState(null)
-
+    const [loading,setLoading] = useState(true)
 //Create Users
 const createUser =(email,password)=>{
+    setLoading(true)
    return createUserWithEmailAndPassword(auth, email, password)
 }
 
-//Sign in users
+//update User profile
 
+const updateUserProfile = (name,image)=>{
+   return updateProfile(auth.currentUser, {
+        displayName: name, 
+        photoURL: image
+      })
+}
+
+//Sign in users
 const signInUser = (email,password)=>{
+    setLoading(true)
    return signInWithEmailAndPassword(auth, email, password)
 }
 
 //google login
 const googleLogin = ()=>{
+    setLoading(true)
     return signInWithPopup(auth, googleProvider)
 }
 //github login
 const githubLogin = ()=>{
+    setLoading(true)
     return signInWithPopup(auth, githubProvider)
 }
 
@@ -40,21 +52,25 @@ const githubLogin = ()=>{
 
 
 useEffect(()=>{
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = ()=>onAuthStateChanged(auth, (user) => {
         if (user) {
             setUser(user)
+            setLoading(false)
         } 
       });
+      return ()=> unsubscribe()
 },[])
 
 
     const AllValues = {
         createUser,
+        updateUserProfile,
         signInUser,
         googleLogin,
         githubLogin,
         logOut,
-        user
+        user,
+        loading
     }
     return (
         <AuthContext.Provider value={AllValues}>

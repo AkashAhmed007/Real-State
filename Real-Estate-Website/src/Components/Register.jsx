@@ -1,15 +1,31 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate,useLocation } from "react-router-dom";
 import { AuthContext } from "./FirebaseProvider/FirebaseProvider";
 import { useForm } from "react-hook-form";
 
 const Register = () => {
-const {createUser} = useContext(AuthContext)  
-  const {register,handleSubmit,formState: { errors }} = useForm()
+const {createUser,updateUserProfile} = useContext(AuthContext)  
+const {register,handleSubmit,formState: { errors }} = useForm()
+
+const navigate = useNavigate()
+const location = useLocation()
+
   const onSubmit = (data)=> {
-    const{email,password} = data;
+    const{email,password,fullName,image} = data;
+    console.log(data.fullName)
+
+  //create user and updateprofile  
     createUser(email,password)
-    .then(result=>console.log(result))
+    .then(()=>{
+      navigate('/')
+    })
+    .then(()=>{
+      updateUserProfile(fullName,image)
+      .then(()=>{
+        navigate(location || '/')
+      })
+    }
+    )
 }
   return (
     <div className="min-h-screen my-5 mt-28 m-5">
@@ -21,8 +37,8 @@ const {createUser} = useContext(AuthContext)
               Username
             </label>
             <input
-              type="text"
-              {...register("username", { required: true })}
+            {...register("username", { required: true })}
+              type="username"
               name="username"
               id="username"
               placeholder="Username"
@@ -47,7 +63,7 @@ const {createUser} = useContext(AuthContext)
             <input
              {...register("image")}
               type="text"
-              name="text"
+              name="image"
               id="image"
               placeholder="PhotURL"
               className="w-full px-4 py-3  border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
