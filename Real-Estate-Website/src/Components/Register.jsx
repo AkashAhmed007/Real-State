@@ -4,8 +4,7 @@ import { AuthContext } from "./FirebaseProvider/FirebaseProvider";
 import { useForm } from "react-hook-form";
 
 const Register = () => {
-
-  const {createUser} = useContext(AuthContext)  
+const {createUser} = useContext(AuthContext)  
   const {register,handleSubmit,formState: { errors }} = useForm()
   const onSubmit = (data)=> {
     const{email,password} = data;
@@ -69,7 +68,7 @@ const Register = () => {
             {errors.password && <span className="text-red-500" >This field is required</span>}
           </div>
           <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600 bg-[#27b6de] text-white">
-            Sign in
+            Create Account
           </button>
         </form>
         <div className="flex items-center pt-4 space-x-1">
