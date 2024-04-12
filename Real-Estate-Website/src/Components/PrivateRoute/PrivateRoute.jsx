@@ -12,9 +12,10 @@ const PrivateRoute = ({children}) => {
         return <Navigate to='/login' state={location?.pathname || '/'}></Navigate>
     }
     return (
-        <div className="mt-28">
+    
+         <div>
             {children}
-        </div>
+         </div>
     );
 };
 PrivateRoute.propTypes = {

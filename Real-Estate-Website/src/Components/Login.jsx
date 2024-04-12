@@ -28,7 +28,7 @@ const handleSocialLogin = (socialProvider)=>{
 }
 
   return (
-    <div className="min-h-screen my-5 mt-28 m-5">
+    <div className="min-h-screen my-20">
       <div className="w-full mx-auto max-w-md p-4 rounded-lg border shadow sm:p-8 dark:bg-gray-500 dark:text-gray-800">
         <h2 className="mb-3 text-3xl font-semibold text-center">
           Login to your account

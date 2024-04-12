@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import auth from "../../Firebase/firebaseConfig";
 
-
 //social auth providers
 const googleProvider = new GoogleAuthProvider()
 const githubProvider = new GithubAuthProvider()
@@ -12,14 +11,14 @@ export const AuthContext = createContext(null);
 const FirebaseProvider = ({children}) => {
     const [user,setUser] = useState(null)
     const [loading,setLoading] = useState(true)
+
 //Create Users
-const createUser =(email,password)=>{
+const createUser =(email,password,userName,photoURL)=>{
     setLoading(true)
-   return createUserWithEmailAndPassword(auth, email, password)
+   return createUserWithEmailAndPassword(auth, email, password,userName,photoURL)
 }
 
 //update User profile
-
 const updateUserProfile = (name,image)=>{
    return updateProfile(auth.currentUser, {
         displayName: name, 

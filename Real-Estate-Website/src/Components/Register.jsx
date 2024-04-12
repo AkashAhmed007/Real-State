@@ -6,21 +6,19 @@ import { useForm } from "react-hook-form";
 const Register = () => {
 const {createUser,updateUserProfile} = useContext(AuthContext)  
 const {register,handleSubmit,formState: { errors }} = useForm()
-
 const navigate = useNavigate()
 const location = useLocation()
 
-  const onSubmit = (data)=> {
-    const{email,password,fullName,image} = data;
-    console.log(data.fullName)
+const onSubmit = (data)=> {
+    const{email,password,username,image} = data;
 
-  //create user and updateprofile  
-    createUser(email,password)
+//create user and updateprofile  
+    createUser(email,password,username,image)
     .then(()=>{
       navigate('/')
     })
     .then(()=>{
-      updateUserProfile(fullName,image)
+      updateUserProfile(username,image)
       .then(()=>{
         navigate(location || '/')
       })
@@ -28,7 +26,7 @@ const location = useLocation()
     )
 }
   return (
-    <div className="min-h-screen my-5 mt-28 m-5">
+    <div className="min-h-screen my-20">
       <div className="w-full mx-auto max-w-md p-8 space-y-3 border rounded-xl dark:bg-gray-50 dark:text-gray-800">
         <h1 className="text-3xl font-bold text-center">Register Now!</h1>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -37,12 +35,12 @@ const location = useLocation()
               Username
             </label>
             <input
-            {...register("username", { required: true })}
-              type="username"
+              type="text"
               name="username"
               id="username"
               placeholder="Username"
               className="w-full px-4 py-3 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+              {...register("username", { required: true })}
             />
             {errors.username && <span className="text-red-500" >This field is required</span>}
             <label htmlFor="email" className="block dark:text-gray-600">
