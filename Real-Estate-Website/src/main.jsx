@@ -17,14 +17,15 @@ import NotFound from './Components/NotFound.jsx';
 import FirebaseProvider from './Components/FirebaseProvider/FirebaseProvider.jsx';
 import EstateDetails from './Components/Estates/EstateDetails.jsx';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
+import HelmetExport from 'react-helmet';
 
 const router = createBrowserRouter([
   {
-    path:'/',
+    path:"/",
     element: <MainLayout></MainLayout>,
     errorElement: <NotFound></NotFound>,
     children:[
-     { path:'/',
+     { path:"/",
       element: <Home></Home>,
       loader:()=>fetch('/data.json')
     },
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
     },
     {
       path:'/feature',
-      element:<Features></Features>
+      element:<PrivateRoute><Features></Features></PrivateRoute>
     },
       {
         path:'/login',

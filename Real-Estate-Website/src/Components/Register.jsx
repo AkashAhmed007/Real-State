@@ -1,32 +1,38 @@
-import { useContext } from "react";
-import { Link,useNavigate,useLocation } from "react-router-dom";
+import { useContext} from "react";
+import { Link,useNavigate} from "react-router-dom";
 import { AuthContext } from "./FirebaseProvider/FirebaseProvider";
 import { useForm } from "react-hook-form";
+import { Helmet } from "react-helmet";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
 const {createUser,updateUserProfile} = useContext(AuthContext)  
 const {register,handleSubmit,formState: { errors }} = useForm()
 const navigate = useNavigate()
-const location = useLocation()
+const [showPassword,setShowPassword] = useState(false)
+
 
 const onSubmit = (data)=> {
-    const{email,password,username,image} = data;
-
+const{email,password,username,image} = data;  
 //create user and updateprofile  
     createUser(email,password,username,image)
     .then(()=>{
-      navigate('/')
-    })
-    .then(()=>{
       updateUserProfile(username,image)
       .then(()=>{
-        navigate(location || '/')
-      })
-    }
-    )
+        navigate("/")
+      }) 
+     
+    })
+    
+   
+    
 }
   return (
     <div className="min-h-screen my-20">
+      <Helmet>
+        <title>Realty-Hub | Register</title>
+      </Helmet>
       <div className="w-full mx-auto max-w-md p-8 space-y-3 border rounded-xl dark:bg-gray-50 dark:text-gray-800">
         <h1 className="text-3xl font-bold text-center">Register Now!</h1>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -71,14 +77,19 @@ const onSubmit = (data)=> {
             <label htmlFor="password" className="block dark:text-gray-600">
               Password
             </label>
+            <div className="flex justify-center items-center">
             <input
             {...register("password", { required: true })}
-              type="password"
+              type={showPassword ? "text":"password"}
               name="password"
               id="password"
               placeholder="Password"
               className="w-full px-4 py-3 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
             />
+            <span className="" onClick={()=>setShowPassword(!showPassword)}>{
+              showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+            }</span>
+            </div>
             {errors.password && <span className="text-red-500" >This field is required</span>}
           </div>
           <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600 bg-[#27b6de] text-white">
@@ -121,13 +132,13 @@ const onSubmit = (data)=> {
             </svg>
           </button>
         </div>
-        <p className="text-xs text-center sm:px-6 dark:text-gray-600">
+        <p className="text-sm text-center dark:text-gray-600">
           Already Registerd?
           <Link
             to="/login"
             rel="noopener noreferrer"
             href="#"
-            className="underline dark:text-gray-800"
+            className="focus:underline hover:underline text-blue-600"
           >
             Login
           </Link>

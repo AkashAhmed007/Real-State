@@ -1,34 +1,48 @@
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link,useNavigate,useLocation } from "react-router-dom";
 import { AuthContext } from "./FirebaseProvider/FirebaseProvider";
 import { useForm } from "react-hook-form";
+import { Helmet } from "react-helmet";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 const Login = () => {
-const {signInUser,googleLogin,githubLogin} = useContext(AuthContext)
+const {user,signInUser,googleLogin,githubLogin} = useContext(AuthContext)
 const navigate = useNavigate()
 const location = useLocation()
-
+const [showPassword,setShowPassword] = useState(false)
 const handleSocialLogin = (socialProvider)=>{
   socialProvider()
   .then(result=>{
     if(result.user){
-      navigate(location?.state || '/')
+      navigate(location?.state || "/")
     }
   }
   )
 }
+useEffect(()=>{
+  if(user){
+     navigate(location.state)
+  }
+},[user])
 
   const {register,handleSubmit,formState: { errors }} = useForm()
   const onSubmit = (data)=> {
     const{email,password} = data;
     signInUser(email,password)
-    .then(()=>{
-      navigate(location?.state || '/')
-    })
+    .then(result=>{
+      if(result.user){
+        navigate("/")
+      }
+    }
+    )
 }
 
   return (
     <div className="min-h-screen my-20">
+      <Helmet>
+        <title>Realty-Hub | Login</title>
+      </Helmet>
       <div className="w-full mx-auto max-w-md p-4 rounded-lg border shadow sm:p-8 dark:bg-gray-500 dark:text-gray-800">
         <h2 className="mb-3 text-3xl font-semibold text-center">
           Login to your account
@@ -111,14 +125,19 @@ const handleSocialLogin = (socialProvider)=>{
             <label htmlFor="password" className="block dark:text-gray-600">
               Password
             </label>
+            <div className="flex justify-center items-center">
             <input
             {...register("password", { required: true })}
-              type="password"
+              type={showPassword ? "text":"password"}
               name="password"
               id="password"
               placeholder="Password"
               className="w-full px-4 py-3 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
             />
+            <span className="" onClick={()=>setShowPassword(!showPassword)}>{
+              showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+            }</span>
+            </div>
             {errors.password && <span className="text-red-500" >This field is required</span>}
           </div>
           <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600 bg-[#27b6de] text-white">

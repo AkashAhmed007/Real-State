@@ -1,27 +1,31 @@
+import { Helmet } from "react-helmet";
+
 const About = () => {
   return (
     <div className="min-h-screen my-20">
+      <Helmet>
+        <title>Realty-Hub | About</title>
+      </Helmet>
       <div>
         <section>
           <div className="dark:bg-violet-600">
             <div className="container flex flex-col items-center px-4 pb-24 mx-auto text-center lg:pb-56 md:py-18 md:px-10 lg:px-32 dark:text-gray-50">
-              <h1 className="text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-50">
-                Provident blanditiis cum exercitationem
+              <h1 className="text-5xl font-bold leading-none sm:text-5xl xl:max-w-3xl dark:text-gray-50">
+                Welcome to All-in-One Realty Hub
               </h1>
               <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-50">
-                Cupiditate minima voluptate temporibus quia? Architecto beatae
-                esse ab amet vero eaque explicabo!
+              At All-in-One Properties, we are dedicated to delivering exceptional service and results in the dynamic world of commercial real estate. 
               </p>
               <div className="flex flex-wrap justify-center">
                 <button
                   type="button"
-                  className="px-8 py-3 m-2 text-lg font-semibold rounded dark:bg-gray-100 dark:text-gray-900"
+                  className="px-8 py-3 m-2 text-lg font-semibold rounded dark:bg-gray-100 dark:text-gray-900 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500"
                 >
                   Get started
                 </button>
                 <button
                   type="button"
-                  className="px-8 py-3 m-2 text-lg border rounded dark:border-gray-300 dark:text-gray-50"
+                  className="px-8 py-3 m-2 text-lg border rounded dark:border-gray-300 dark:text-gray-50 bg-success"
                 >
                   Learn more
                 </button>
@@ -29,7 +33,7 @@ const About = () => {
             </div>
           </div>
           <img
-            src="https://source.unsplash.com/random/480x320"
+            src="https://i.ibb.co/sjGvTQz/pexels-fauxels-3184418.jpg"
             alt=""
             className="w-5/6 mx-auto mb-12 -mt-20 dark:bg-gray-500 rounded-lg shadow-md lg:-mt-40"
           />
@@ -38,7 +42,7 @@ const About = () => {
         <section className="m-4 md:m-8 dark:bg-gray-100 dark:text-gray-800">
           <div className="container mx-auto p-4 my-6 space-y-2 text-center">
             <h2 className="text-5xl font-bold">Built to empower every team</h2>
-            <p className="dark:text-gray-600">Libero minima optio qui</p>
+            <p className="dark:text-gray-600">Why Choose Us???</p>
           </div>
           <div className="container mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <div className="flex flex-col items-center p-4">
@@ -54,11 +58,10 @@ const About = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-              <h3 className="my-3 text-3xl font-semibold">Product</h3>
+              <h3 className="my-3 text-3xl font-semibold">Expertise</h3>
               <div className="space-y-1 leading-tight">
-                <p>Similique quas ea veniam</p>
-                <p>Tempore quasi porro</p>
-                <p>Blanditiis aut mollitia ex</p>
+                <p>a prime location</p>
+                <p>downtown financial district</p>
               </div>
             </div>
             <div className="flex flex-col items-center p-4">
@@ -74,11 +77,10 @@ const About = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-              <h3 className="my-3 text-3xl font-semibold">Product</h3>
+              <h3 className="my-3 text-3xl font-semibold">Integrity</h3>
               <div className="space-y-1 leading-tight">
-                <p>Similique quas ea veniam</p>
-                <p>Tempore quasi porro</p>
-                <p>Blanditiis aut mollitia ex</p>
+                <p>With floor-to-ceiling windows</p>
+                <p>natural light and panoramic views</p>
               </div>
             </div>
             <div className="flex flex-col items-center p-4">
@@ -94,11 +96,10 @@ const About = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-              <h3 className="my-3 text-3xl font-semibold">Product</h3>
+              <h3 className="my-3 text-3xl font-semibold">Client-Centric Approach</h3>
               <div className="space-y-1 leading-tight">
-                <p>Similique quas ea veniam</p>
-                <p>Tempore quasi porro</p>
-                <p>Blanditiis aut mollitia ex</p>
+                <p>ideal for businesses looking</p>
+                <p>impress clients and inspire productivity.</p>
               </div>
             </div>
             <div className="flex flex-col items-center p-4">
@@ -114,11 +115,10 @@ const About = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-              <h3 className="my-3 text-3xl font-semibold">Product</h3>
+              <h3 className="my-3 text-3xl font-semibold">Results-Oriented</h3>
               <div className="space-y-1 leading-tight">
-                <p>Similique quas ea veniam</p>
-                <p>Tempore quasi porro</p>
-                <p>Blanditiis aut mollitia ex</p>
+                <p>open floor plan allows for flexible layout options</p>
+                <p>state-of-the-art amenities including</p>
               </div>
             </div>
             <div className="flex flex-col items-center p-4">
@@ -134,11 +134,10 @@ const About = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-              <h3 className="my-3 text-3xl font-semibold">Product</h3>
+              <h3 className="my-3 text-3xl font-semibold">Leasing and Sales</h3>
               <div className="space-y-1 leading-tight">
-                <p>Similique quas ea veniam</p>
-                <p>Tempore quasi porro</p>
-                <p>Blanditiis aut mollitia ex</p>
+                <p>contemporary office space offers</p>
+                <p> downtown financial district</p>
               </div>
             </div>
             <div className="flex flex-col items-center p-4">
@@ -154,11 +153,10 @@ const About = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-              <h3 className="my-3 text-3xl font-semibold">Product</h3>
+              <h3 className="my-3 text-3xl font-semibold">Property Management</h3>
               <div className="space-y-1 leading-tight">
-                <p>Similique quas ea veniam</p>
-                <p>Tempore quasi porro</p>
-                <p>Blanditiis aut mollitia ex</p>
+                <p>including high-speed internet,</p>
+                <p>state-of-the-art amenities</p>
               </div>
             </div>
           </div>
@@ -182,9 +180,7 @@ const About = () => {
                     <path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
                     <path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
                   </svg>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Voluptatibus quibusdam, eligendi exercitationem molestias
-                  possimus facere.
+                  Working with Prime Commercial Properties was a pleasure from start to finish. Their team's expertise and dedication helped us find the perfect office space for our growing business. 
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512"
@@ -200,7 +196,7 @@ const About = () => {
                 <img
                   src="https://source.unsplash.com/50x50/?portrait?1"
                   alt=""
-                  className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full dark:bg-gray-500 dark:bg-gray-300"
+                  className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full dark:bg-gray-500"
                 />
                 <p className="text-xl font-semibold leading-tight">
                   Distinctio Animi
@@ -220,9 +216,7 @@ const About = () => {
                     <path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
                     <path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
                   </svg>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Voluptatibus quibusdam, eligendi exercitationem molestias
-                  possimus facere.
+                  They took the time to understand our needs and provided personalized service every step of the way. I highly recommend Prime Commercial Properties to anyone in need of professional.
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512"
@@ -238,7 +232,7 @@ const About = () => {
                 <img
                   src="https://source.unsplash.com/50x50/?portrait?2"
                   alt=""
-                  className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full dark:bg-gray-500 dark:bg-gray-300"
+                  className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full dark:bg-gray-500"
                 />
                 <p className="text-xl font-semibold leading-tight">
                   Distinctio Animi
@@ -258,9 +252,7 @@ const About = () => {
                     <path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
                     <path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
                   </svg>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Voluptatibus quibusdam, eligendi exercitationem molestias
-                  possimus facere.
+                  They took the time to understand our needs and provided personalized service every step of the way. I highly recommend Prime Commercial Properties to anyone in need of professional.
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512"
@@ -276,7 +268,7 @@ const About = () => {
                 <img
                   src="https://source.unsplash.com/50x50/?portrait?3"
                   alt=""
-                  className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full dark:bg-gray-500 dark:bg-gray-300"
+                  className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full dark:bg-gray-500 "
                 />
                 <p className="text-xl font-semibold leading-tight">
                   Distinctio Animi
@@ -296,9 +288,7 @@ const About = () => {
                     <path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
                     <path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
                   </svg>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Voluptatibus quibusdam, eligendi exercitationem molestias
-                  possimus facere.
+                  I had the pleasure of working with Prime Commercial Properties on the sale of my retail property. Their team's attention to detail and strategic approach resulted in a smooth and successful transaction.
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512"
@@ -314,7 +304,7 @@ const About = () => {
                 <img
                   src="https://source.unsplash.com/50x50/?portrait?4"
                   alt=""
-                  className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full dark:bg-gray-500 dark:bg-gray-300"
+                  className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full dark:bg-gray-500 "
                 />
                 <p className="text-xl font-semibold leading-tight">
                   Distinctio Animi

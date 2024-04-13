@@ -1,10 +1,14 @@
-import { useLoaderData } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 import Banner from "../Components/Banner";
 import EstatesCard from "../Components/EstatesCard";
+import { Helmet } from "react-helmet";
 const Home = () => {
   const card = useLoaderData();
   return (
     <>
+    <Helmet>
+      <title>Realty Hub | Home</title>
+    </Helmet>
       <Banner></Banner>
       <h1 className="text-xl sm:text-2xl md:text-3xl text-center m-4 sm:m-6 md:m-8 ">
         OUR BEST OFFERS
@@ -20,13 +24,11 @@ const Home = () => {
 
 
       <p className="border-t-2 border-indigo-500 m-2 sm:m-3 lg:m-5"></p>
-      <div className="lg:flex lg:justify-between items-center m-3 sm:m-5 lg:py-16 py-5">
+      <div className="lg:flex lg:justify-between items-center m-3 sm:m-8 lg:py-16 py-5">
         <h1 className="sm:text-3xl font-bold lg:w-3/4 w-full lg:pr-5 pr-3">
-          GET STARTED ON BUYING YOUR NEW HOME! FIND YOUR AGENT!
+          GET STARTED ON BUYING YOUR NEW Place! FIND YOUR AGENT!
         </h1>
-        <button className="bg-[#27b6de] text-white lg:text-xl text-base px-2 py-3 font-bold lg:mt-5 mt-2">
-          CLICK HERE
-        </button>
+        <NavLink to ='/feature' className="btn btn-success">Visit Here</NavLink>
       </div>
       <div>
         <section className="py-6 dark:bg-gray-100 dark:text-gray-900">

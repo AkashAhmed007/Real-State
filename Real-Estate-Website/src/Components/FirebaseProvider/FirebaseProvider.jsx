@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import auth from "../../Firebase/firebaseConfig";
 
+
 //social auth providers
 const googleProvider = new GoogleAuthProvider()
 const githubProvider = new GithubAuthProvider()
@@ -10,11 +11,10 @@ const githubProvider = new GithubAuthProvider()
 export const AuthContext = createContext(null);
 const FirebaseProvider = ({children}) => {
     const [user,setUser] = useState(null)
-    const [loading,setLoading] = useState(true)
+    const [loading,setLoading] = useState(true);
 
 //Create Users
 const createUser =(email,password,userName,photoURL)=>{
-    setLoading(true)
    return createUserWithEmailAndPassword(auth, email, password,userName,photoURL)
 }
 
@@ -46,7 +46,7 @@ const githubLogin = ()=>{
 //logout user
  const logOut = ()=>{
     signOut(auth)
-    setUser(null)
+    setUser(null)  
  }
 
 
@@ -63,12 +63,12 @@ useEffect(()=>{
 
     const AllValues = {
         createUser,
-        updateUserProfile,
         signInUser,
         googleLogin,
         githubLogin,
         logOut,
         user,
+        updateUserProfile,
         loading
     }
     return (
