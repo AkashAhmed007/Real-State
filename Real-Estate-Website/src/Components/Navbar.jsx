@@ -4,7 +4,8 @@ import { useContext } from "react";
 import { AuthContext } from "./FirebaseProvider/FirebaseProvider";
 
 const Navbar = () => {
-  const { logOut, user } = useContext(AuthContext);
+  const { user,logOut } = useContext(AuthContext);
+  
   return (
     <div className="w-full fixed top-0 z-10 ">
       <div className="navbar bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%; text-white">
@@ -75,7 +76,7 @@ const Navbar = () => {
                 <div className="w-10 rounded-full">
                   <img
                     alt="Tailwind CSS Navbar component"
-                    src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"}
+                    src={user?.photoURL || "https://i.ibb.co/pfrT3R6/user-3296.png"}
                   />
                 </div>
               </div>

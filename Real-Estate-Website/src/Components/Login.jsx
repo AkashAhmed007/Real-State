@@ -1,4 +1,3 @@
-
 import { useContext, useEffect } from "react";
 import { Link,useNavigate,useLocation } from "react-router-dom";
 import { AuthContext } from "./FirebaseProvider/FirebaseProvider";
@@ -6,19 +5,22 @@ import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+
 const Login = () => {
 const {user,signInUser,googleLogin,githubLogin} = useContext(AuthContext)
 const navigate = useNavigate()
 const location = useLocation()
 const [showPassword,setShowPassword] = useState(false)
+const [loginError,setLoginError] = useState('')
+
 const handleSocialLogin = (socialProvider)=>{
   socialProvider()
   .then(result=>{
     if(result.user){
-      navigate(location?.state || "/")
-    }
-  }
-  )
+      alert('You have login succesfully')
+      navigate(location?.state ? "/" : location?.state)
+    } 
+  })
 }
 useEffect(()=>{
   if(user){
@@ -29,13 +31,16 @@ useEffect(()=>{
   const {register,handleSubmit,formState: { errors }} = useForm()
   const onSubmit = (data)=> {
     const{email,password} = data;
+    setLoginError('')
     signInUser(email,password)
     .then(result=>{
       if(result.user){
-        navigate("/")
+        alert('You have Login succesfully')
+        navigate(location?.state ? location?.state : "/")
       }
-    }
-    )
+    }).catch(error=>{
+      setLoginError(error.message)
+    })
 }
 
   return (
@@ -139,6 +144,7 @@ useEffect(()=>{
             }</span>
             </div>
             {errors.password && <span className="text-red-500" >This field is required</span>}
+            {loginError && <p className="text-red-500">{loginError}</p>}
           </div>
           <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600 bg-[#27b6de] text-white">
             Sign in

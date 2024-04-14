@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import auth from "../../Firebase/firebaseConfig";
 
-
 //social auth providers
 const googleProvider = new GoogleAuthProvider()
 const githubProvider = new GithubAuthProvider()
@@ -45,8 +44,8 @@ const githubLogin = ()=>{
 
 //logout user
  const logOut = ()=>{
-    signOut(auth)
-    setUser(null)  
+    signOut(auth);  
+    setUser(null)   
  }
 
 

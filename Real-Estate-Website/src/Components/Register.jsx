@@ -11,18 +11,32 @@ const {createUser,updateUserProfile} = useContext(AuthContext)
 const {register,handleSubmit,formState: { errors }} = useForm()
 const navigate = useNavigate()
 const [showPassword,setShowPassword] = useState(false)
+const [registerError,setRegisterError] = useState('');
 
 
 const onSubmit = (data)=> {
-const{email,password,username,image} = data;  
+const{email,password,username,image} = data; 
+if(password < 6){
+  setRegisterError('Password should be at least 6 characters or longer')
+  return;
+}else if(!/[A-Z]/.test(password)){
+  setRegisterError('Your Password Should have at least one Uppercase character')
+  return;
+}else if(!/[a-z]/.test(password)){
+  setRegisterError('Your Password Should have at least one Lowercase character')
+  return;
+}
+setRegisterError('')
 //create user and updateprofile  
     createUser(email,password,username,image)
     .then(()=>{
+      alert('You have registered succesfully')
       updateUserProfile(username,image)
       .then(()=>{
         navigate("/")
-      }) 
-     
+      })
+    }).catch(error=>{
+      setRegisterError(error.message)
     })
     
    
@@ -36,6 +50,7 @@ const{email,password,username,image} = data;
       <div className="w-full mx-auto max-w-md p-8 space-y-3 border rounded-xl dark:bg-gray-50 dark:text-gray-800">
         <h1 className="text-3xl font-bold text-center">Register Now!</h1>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        {registerError && <p className="text-red-500">{registerError}</p>}
           <div className="space-y-1 text-sm">
             <label htmlFor="username" className="block dark:text-gray-600">
               Username
