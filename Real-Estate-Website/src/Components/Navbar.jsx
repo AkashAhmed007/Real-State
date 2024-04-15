@@ -1,11 +1,10 @@
-import { Link} from "react-router-dom";
+import { Link, Navigate} from "react-router-dom";
 import { FcHome } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "./FirebaseProvider/FirebaseProvider";
 
 const Navbar = () => {
   const { user,logOut } = useContext(AuthContext);
-  
   return (
     <div className="w-full fixed top-0 z-10 ">
       <div className="navbar bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%; text-white">
@@ -66,7 +65,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          {user? (
+          {user?(
             <div className="dropdown dropdown-end">
               <div
                 tabIndex={0}

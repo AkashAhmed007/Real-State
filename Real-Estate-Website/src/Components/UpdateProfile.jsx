@@ -1,11 +1,32 @@
-import { useContext } from "react";
-import Register from "./Register";
+import { useContext} from "react";
 import { AuthContext } from "./FirebaseProvider/FirebaseProvider";
 import { Helmet } from "react-helmet";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 const UpdateProfile = () => {
-  const { user } = useContext(AuthContext);
-  return (
+  const {user,updateUserProfile,createUser} = useContext(AuthContext);
+  const navigate = useNavigate()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
+
+  const onSubmit =(data)=>{
+    const{username,image,email,password} = data;
+    createUser(email,password,username,image)
+    .then(()=>{
+      alert('You have registered succesfully')
+      updateUserProfile(username,image)
+      .then(()=>{
+        navigate("/")
+      })
+    }).catch(error=>{
+      console.log(error.message)
+    })
+  }
+ return (
     <>
       <div className="mt-10">
       <Helmet>
@@ -14,8 +35,8 @@ const UpdateProfile = () => {
         <div className="max-w-md p-6 mx-auto sm:flex sm:space-x-6 dark:bg-gray-50 dark:text-gray-800 border-gray-500 border mt-20">
           <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
             <img
-              src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"}
-              alt=""
+              src={user?.photoURL || "https://i.ibb.co/C26wRTg/istockphoto-1300845620-1024x1024.jpg"}
+              alt="user-image"
               className="object-cover object-center w-full h-full rounded dark:bg-gray-500 mt-8"
             />
           </div>
@@ -66,36 +87,66 @@ const UpdateProfile = () => {
           </div>
         </div>
       </div>
-      <div className="w-1/2 mx-auto flex justify-center items-center border border-black m-3 p-3 rounded-xl">
-        <h3 className="text-2xl font-bold">Update your profile</h3>
-        <div className="">
-        <form className="flex flex-col py-6 space-y-6 md:py-0 md:px-6 border-gray-500">
-        <label className="block">
-                <span className="mb-1">Email address</span>
-                <input
-                  type="email"
-                  placeholder="leroy@jenkins.com"
-                  className="w-full px-4 py-3  border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
-                />
-              </label>
-              <label className="block">
-                <span className="mb-1">PhotoURL</span>
-                <input
-                  type="text"
-                  placeholder="https:www.freepik.com"
-                  className="w-full px-4 py-3  border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
-                />
-              </label>
-              
-              <button
-                type="button"
-                className="bg-[#27b6de] w-full text-white self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 dark:bg-violet-600 dark:text-gray-50 focus:dark:ring-violet-600 hover:dark:ring-violet-600"
-              >
-                Submit
-              </button>
-        </form>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <div className="w-full mx-auto max-w-md p-8 space-y-3 border rounded-xl dark:bg-gray-50 dark:text-gray-800">
+        <div className="space-y-1 text-sm">
+          <label htmlFor="username" className="block dark:text-gray-600">
+              Username
+            </label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Username"
+              className="w-full px-4 py-3 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+              {...register("username", { required: true })}
+            />
+            {errors.username && <span className="text-red-500" >This field is required</span>}
+
+            <label htmlFor="email" className="block dark:text-gray-600">
+              Email
+            </label>
+            <input
+              type="text"
+              name="email"
+              id="emial"
+              placeholder="email"
+              className="w-full px-4 py-3 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+              {...register("email", { required: true })}
+            />
+            {errors.email && <span className="text-red-500" >This field is required</span>}
+
+            <label htmlFor="password" className="block dark:text-gray-600">
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              className="w-full px-4 py-3 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+              {...register("password", { required: true })}
+            />
+            {errors.password && <span className="text-red-500" >This field is required</span>}
+
+            <label htmlFor="image" className="block dark:text-gray-600">
+              PhotoURL
+            </label>
+            <input
+             {...register("image")}
+              type="text"
+              name="image"
+              id="image"
+              placeholder="PhotURL"
+              className="w-full px-4 py-3  border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+            />
+          </div>
+          <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600 bg-[#27b6de] text-white">
+            Sign in
+          </button>
         </div>
-      </div>
+          
+    </form>
     </>
   );
 };

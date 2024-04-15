@@ -12,8 +12,6 @@ const {register,handleSubmit,formState: { errors }} = useForm()
 const navigate = useNavigate()
 const [showPassword,setShowPassword] = useState(false)
 const [registerError,setRegisterError] = useState('');
-
-
 const onSubmit = (data)=> {
 const{email,password,username,image} = data; 
 if(password < 6){

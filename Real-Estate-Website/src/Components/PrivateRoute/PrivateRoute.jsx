@@ -9,10 +9,9 @@ const location = useLocation()
     if(!user){
         return <Navigate to="/login" state={location?.pathname || "/"}></Navigate>
     } 
-    if(loading)(
-        <h1 className='text-2xl'>Loading...</h1> 
-    )
-    
+    if(loading){
+        return <h1 className='text-2xl'>Loading...</h1> 
+    }
     return (
     
          <div>

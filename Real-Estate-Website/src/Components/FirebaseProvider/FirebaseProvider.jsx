@@ -44,10 +44,9 @@ const githubLogin = ()=>{
 
 //logout user
  const logOut = ()=>{
-    signOut(auth);  
-    setUser(null)   
+    signOut(auth); 
+    setUser(null)    
  }
-
 
 useEffect(()=>{
     const unsubscribe = ()=>onAuthStateChanged(auth, (user) => {

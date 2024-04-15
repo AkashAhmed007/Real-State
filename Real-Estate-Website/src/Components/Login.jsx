@@ -19,6 +19,8 @@ const handleSocialLogin = (socialProvider)=>{
     if(result.user){
       alert('You have login succesfully')
       navigate(location?.state ? "/" : location?.state)
+    }else{
+      alert('Please Register first')
     } 
   })
 }
