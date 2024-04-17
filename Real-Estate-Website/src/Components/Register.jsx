@@ -149,7 +149,6 @@ setRegisterError('')
           Already Registerd?
           <Link
             to="/login"
-            rel="noopener noreferrer"
             href="#"
             className="focus:underline hover:underline text-blue-600"
           >

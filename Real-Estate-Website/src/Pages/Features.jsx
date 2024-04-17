@@ -13,8 +13,7 @@ const Features = () => {
               All the features you want
             </h2>
             <p className="mt-4 text-lg dark:text-gray-600">
-              Pellentesque viverra, leo id euismod laoreet, nunc risus molestie
-              orci, vel faucibus quam justo id mauris.
+            Commercial real estate (CRE) covers a diverse range of asset types and is defined as property used specifically for business purposes. The primary role of a commercial property is to generate revenue through capital gain or rental income.  
             </p>
           </div>
           <dl className="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-8">
@@ -211,9 +210,9 @@ const Features = () => {
         <div className="container mx-auto space-y-12">
           <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
             <img
-              src="https://source.unsplash.com/640x480/?1"
+              src="https://i.ibb.co/Hpq0N79/commercial-properties-in-ahemedabad-res-management.webp"
               alt=""
-              className="h-80 dark:bg-gray-500 aspect-video"
+              className="h-80 dark:bg-gray-500 aspect-video hover:translate-x-6 transition delay-250 duration-300"
             />
             <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-50">
               <span className="text-xs uppercase dark:text-gray-600">
@@ -223,19 +222,18 @@ const Features = () => {
                 Were not reinventing the wheel
               </h3>
               <p className="my-6 dark:text-gray-600">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-                aliquam possimus quas, error esse quos.
+              Working with Prime Commercial Properties was a pleasure from start to finish. Their team's expertise and dedication helped us find the perfect office space for our growing business.
               </p>
-              <button type="button" className="self-start">
+              <button type="button" className="self-start text-white btn transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300">
                 Action
               </button>
             </div>
           </div>
           <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
             <img
-              src="https://source.unsplash.com/640x480/?2"
+              src="https://i.ibb.co/4JmxQXs/commercial-real-estate.webp"
               alt=""
-              className="h-80 dark:bg-gray-500 aspect-video"
+              className="h-80 dark:bg-gray-500 aspect-video hover:-translate-x-6 transition delay-250 duration-300"
             />
             <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-50">
               <span className="text-xs uppercase dark:text-gray-600">
@@ -245,19 +243,18 @@ const Features = () => {
                 Were not reinventing the wheel
               </h3>
               <p className="my-6 dark:text-gray-600">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-                aliquam possimus quas, error esse quos.
+              Working with Prime Commercial Properties was a pleasure from start to finish. Their team's expertise and dedication helped us find the perfect office space for our growing business.
               </p>
-              <button type="button" className="self-start">
+              <button type="button" className="self-start text-white btn transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300">
                 Action
               </button>
             </div>
           </div>
           <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
             <img
-              src="https://source.unsplash.com/640x480/?3"
+              src="https://i.ibb.co/WcJ3bgK/commercial-real-estate-1.jpg"
               alt=""
-              className="h-80 dark:bg-gray-500 aspect-video"
+              className="h-80 dark:bg-gray-500 aspect-video hover:translate-x-6 transition delay-250 duration-300"
             />
             <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-50">
               <span className="text-xs uppercase dark:text-gray-600">
@@ -267,10 +264,9 @@ const Features = () => {
                 Were not reinventing the wheel
               </h3>
               <p className="my-6 dark:text-gray-600">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-                aliquam possimus quas, error esse quos.
+              Working with Prime Commercial Properties was a pleasure from start to finish. Their team's expertise and dedication helped us find the perfect office space for our growing business.
               </p>
-              <button type="button" className="self-start">
+              <button type="button" className="self-start text-white btn transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300">
                 Action
               </button>
             </div>

@@ -58,7 +58,6 @@ useEffect(()=>{
           Dont have account?
           <Link to='/register'
             href="#"
-            rel="noopener noreferrer"
             className="focus:underline hover:underline text-blue-600"
           >
             Sign up here
@@ -113,7 +112,7 @@ useEffect(()=>{
           <p className="px-3 dark:text-gray-600">OR</p>
           <hr className="w-full dark:text-gray-600" />
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={handleSubmit(onSubmit)} id="form" className="space-y-6">
           <div className="space-y-1 text-sm">
             <label htmlFor="email" className="block dark:text-gray-600">
               Email

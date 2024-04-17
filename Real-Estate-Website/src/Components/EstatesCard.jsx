@@ -9,7 +9,7 @@ const EstatesCard = ({card}) => {
       <NavLink to={`/card/${id}`}>
       <div>
         <figure>
-          <img src={image} alt="card-image"/>
+          <img className='hover:scale-125 hover:transition delay-150 duration-300 ease-in-out transform-gpu translate-x-4 skew-y-3' src={image} alt="card-image"/>
         </figure>
         <div className="card-body text-gray-600 font-bold ">
           <h2 className="card-title text-2xl">{estate_title}</h2>
@@ -25,7 +25,7 @@ const EstatesCard = ({card}) => {
           {facilities.map(facility=>(<p key="facility.id">#{facility}</p>))}
           </div>
           <div className="card-actions justify-start">
-            <button className="btn btn-success">View Property</button>
+            <button  className="text-white btn transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300">View Property</button>
           </div>
         </div>
       </div>

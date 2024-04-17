@@ -64,7 +64,7 @@ const Navbar = () => {
             </div>
           </ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end" crossorigin=''>
           {user?(
             <div className="dropdown dropdown-end">
               <div
@@ -75,7 +75,7 @@ const Navbar = () => {
                 <div className="w-10 rounded-full">
                   <img
                     alt="Tailwind CSS Navbar component"
-                    src={user?.photoURL || "https://i.ibb.co/pfrT3R6/user-3296.png"}
+                    src={user?.photoURL || "https://cdn-icons-png.flaticon.com/512/9131/9131529.png"}
                   />
                 </div>
               </div>

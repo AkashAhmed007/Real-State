@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -17,18 +18,18 @@ const About = () => {
               At All-in-One Properties, we are dedicated to delivering exceptional service and results in the dynamic world of commercial real estate. 
               </p>
               <div className="flex flex-wrap justify-center">
-                <button
+                <Link to='/register'
                   type="button"
                   className="px-8 py-3 m-2 text-lg font-semibold rounded dark:bg-gray-100 dark:text-gray-900 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500"
                 >
                   Get started
-                </button>
-                <button
+                </Link>
+                <Link to='/feature'
                   type="button"
                   className="px-8 py-3 m-2 text-lg border rounded dark:border-gray-300 dark:text-gray-50 bg-success"
                 >
                   Learn more
-                </button>
+                </Link>
               </div>
             </div>
           </div>
