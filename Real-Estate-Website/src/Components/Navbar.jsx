@@ -64,7 +64,7 @@ const Navbar = () => {
             </div>
           </ul>
         </div>
-        <div className="navbar-end" crossorigin=''>
+        <div className="navbar-end">
           {user?(
             <div className="dropdown dropdown-end">
               <div
