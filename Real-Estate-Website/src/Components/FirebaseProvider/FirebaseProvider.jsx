@@ -9,8 +9,8 @@ const githubProvider = new GithubAuthProvider()
 
 export const AuthContext = createContext(null);
 const FirebaseProvider = ({children}) => {
-    const [user,setUser] = useState(null)
-    const [loading,setLoading] = useState(true);
+const [user,setUser] = useState(null)
+const [loading,setLoading] = useState(false);
 
 //Create Users
 const createUser =(email,password,userName,photoURL)=>{
@@ -49,15 +49,12 @@ const githubLogin = ()=>{
  }
 
 useEffect(()=>{
-    const unsubscribe = ()=>onAuthStateChanged(auth, (user) => {
-        if (user) {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
             setUser(user)
-            setLoading(false)
-        } 
+            setLoading(false)  
       });
       return ()=> unsubscribe()
 },[])
-
 
     const AllValues = {
         createUser,
